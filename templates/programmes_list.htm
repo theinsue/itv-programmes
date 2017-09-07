@@ -1,0 +1,24 @@
+<!-- LIST OF PROGRAMMES -->
+<div ng-controller="programmesController as pCtrlr">
+    <div class="row">
+        <div class="col-md-12"><h2>ITV Programmes</h2><hr/></div>
+    </div>
+
+
+    <div ng-repeat='programme in pCtrlr.programmes track by $index'>
+
+        <div class="row" ng-if="$index % 7 == 0">
+            <div class="col-xs-12 popularProgrammes">
+                <h4><b> {{ programme.title }}</b></h4> <br/>
+                        {{ programme.synopses.ninety }} <br/>
+                        <i><b>Channel:</b> {{ programme._embedded.latestProduction._embedded.channel.name }} </i>
+            </div>
+        </div>
+
+        <div class="programmes" ng-if="$index % 7 != 0">
+            <h4><b> {{ programme.title }}</b></h4> <br/>
+                    {{ programme.synopses.ninety }} <br/>
+                    <i><b>Channel:</b> {{ programme._embedded.latestProduction._embedded.channel.name }} </i>
+        </div>
+    </div>
+</div>
